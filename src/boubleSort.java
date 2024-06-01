@@ -1,10 +1,12 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class boubleSort {
-    static void bblsort(int[] arr){
-        for(int i=arr.length - 1; i>0; i--){
+
+    static void bbSort(int[] arr){
+        for(int i= arr.length - 1; i>0; i--){
             for(int j=0; j<i; j++){
-                while (arr[j] > arr[j+1]){
+                if(arr[j] > arr[j+1]){
                     int temp = arr[j];
                     arr[j] = arr[j+1];
                     arr[j+1] = temp;
@@ -13,12 +15,16 @@ public class boubleSort {
         }
     }
     public static void main(String[] args){
-        int[] arr = {2, 6, 1, 0, 45, 1, 3, 55};
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
 
-        bblsort(arr);
+        int[] arr = new int[n];
 
+        for(int i=0; i<n; i++){
+            arr[i] = sc.nextInt();
+        }
+
+        bbSort(arr);
         System.out.println(Arrays.toString(arr));
-
-
     }
 }
